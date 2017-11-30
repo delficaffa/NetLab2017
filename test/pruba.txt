@@ -1,6 +1,0 @@
-var file = @"\\fsitsv17\mos-alumnos\alumno\Delfina Caffa\test\pruba.txt";
-
-            if (!File.Exists(file))
-            {
-                File.Create(file);
-            }
