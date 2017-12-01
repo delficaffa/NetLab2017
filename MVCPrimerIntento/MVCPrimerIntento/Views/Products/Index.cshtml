@@ -1,0 +1,11 @@
+﻿@model MVCPrimerIntento.Models.Products
+
+@using (var form = Html.BeginForm())
+{
+    @Html.LabelFor(c=> c.Name)
+    @Html.TextBoxFor(c=> c.Name)
+    @<input typo="text" placeholder="Ingrese su nombre" name="Name"/>
+
+    <button>type </button>
+}
+

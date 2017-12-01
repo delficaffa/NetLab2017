@@ -1,0 +1,16 @@
+	----request->
+********		********
+*Client*		*Server*
+******** <-response---	********
+
+Request
+-Verbo(Post,Get..)
+-Url
+-Headers
+-Body
+
+Response
+-Verbo
+-Url
+-Headers
+-Body

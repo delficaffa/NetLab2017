@@ -1,0 +1,13 @@
+﻿@model List<NorthwindApp.Region>
+
+    <h2>Regniones</h2>
+    <table>
+        @foreach (var region in Model)
+        {
+            <tr>
+                <td> @region.RegionID </td>
+                <td> @region.RegionDescription </td>
+            </tr>
+        }
+
+    </table>
