@@ -42,6 +42,7 @@ namespace Presentacion
                         int id;
                         Console.WriteLine("Ingrese el ID de la orden a eliminar. ");
                         int.TryParse(Console.ReadLine(), out id);
+                        //Eliminar las orderDetails sino no me la va a eliminar
                         servicio.Eliminar(id);
 
                         break;
@@ -111,21 +112,18 @@ namespace Presentacion
                     nuevaOrder.ShipCountry = Console.ReadLine();
                     
                     //----------------- ORDER DETAIL
-
-
+                    
                     nuevaOrder.OrderDetail = new List<OrderDetailDTO>();
                     string opcion;
                     do
                     {
-                        Console.Write("Ingrese 'A' para agregar un producto o 'S' para Salir");
+                        Console.WriteLine("Ingrese 'A' para agregar un producto o 'S' para Salir");
                         opcion = Console.ReadLine().ToLower();
 
                         if (opcion == "a")
                         {
                             var orderDetail = new OrderDetailDTO();
-
-                             
-
+                            orderDetail.OrderID = nuevaOrder.OrderID;
                             do
                             {
                                 Console.Write("Ingrese el nombre del producto: ");
@@ -166,7 +164,7 @@ namespace Presentacion
                     } while (opcion != "s");
 
                     nuevaOrder.OrderID = servicio.Agregar(nuevaOrder);
-
+                    
                     var total = servicio.GetOrderTotal(nuevaOrder.OrderID);
 
                     Console.WriteLine($"La Orden ID: {nuevaOrder.OrderID} con importe total ${total} se ha creado correctamente.");
