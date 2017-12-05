@@ -1,6 +1,7 @@
 ﻿using DataAccess;
 using Servicios.DTO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,34 +16,45 @@ namespace Servicios
             orderRepository = new Repository<Orders>();
         }
 
-
-        public void Agregar(OrderDTO order)
+      
+        public void Agregar(OrderDTO orderDto)
         {
-            var newOrder = new Orders()
+            var order = new Orders()
             {
-                OrderID = order.OrderID,
-                CustomerID = order.CustomerID,
-                Customers = order.Customers,
-                EmployeeID = order.EmployeeID,
-                Employees = order.Employees,
-                OrderDate = order.OrderDate,
-                RequiredDate = order.RequiredDate,
-                ShippedDate = order.ShippedDate,
-                ShipVia = order.ShipVia,
-                Freight = order.Freight,
-                ShipName = order.ShipName,
-                ShipAddress = order.ShipAddress,
-                ShipCity = order.ShipCity,
-                ShipRegion = order.ShipRegion,
-                ShipPostalCode = order.ShipPostalCode,
-                ShipCountry = order.ShipCountry,
-                Order_Details = order.Order_Details
+                EmployeeID = orderDto.EmployeeID,
+                OrderDate = orderDto.OrderDate,
+                RequiredDate = orderDto.RequiredDate,
+                ShipName = orderDto.ShipName,
+                ShipAddress = orderDto.ShipAddress,
+                ShipCity = orderDto.ShipCity,
+                ShipRegion = orderDto.ShipRegion,
+                ShipPostalCode = orderDto.ShipPostalCode,
+                ShipCountry = orderDto.ShipCountry
+                
             };
 
-            orderRepository.Persist(newOrder);
-            orderRepository.SaveChanges();
+            var orderDetails = new List<Order_Details>();
+            var orderDetailsDTO = orderDto.OrderDetail;
+            foreach (var detail in orderDetailsDTO)
+            {
+                var orderDetail = new Order_Details()
+                {
+                    OrderID = detail.OrderID,
+                    ProductID = detail.ProductID,
+                    UnitPrice = detail.UnitPrice,
+                    Quantity = detail.Quantity,
+                    Discount = detail.Discount
+                };
 
+                orderDetails.Add(orderDetail);
+            }
+          
+            orderRepository.Persist(order);
+            orderRepository.SaveChanges();
         }
+        
+
+
 
         public List<OrderGetDTO> Read()
         {
@@ -78,63 +90,79 @@ namespace Servicios
             }
         }
 
-
-        public OrderDTO PartialModificar(int id)
+        public void BuscarkCustomerID(string id)
         {
-            var orderToEdit = orderRepository.GetById(id);
-            var orderEdited = new OrderDTO()
-            {
-                OrderID = orderToEdit.OrderID,
-                CustomerID = orderToEdit.CustomerID,
-                Customers = orderToEdit.Customers,
-                EmployeeID = orderToEdit.EmployeeID,
-                Employees = orderToEdit.Employees,
-                OrderDate = orderToEdit.OrderDate,
-                RequiredDate = orderToEdit.RequiredDate,
-                ShippedDate = orderToEdit.ShippedDate,
-                ShipVia = orderToEdit.ShipVia,
-                Freight = orderToEdit.Freight,
-                ShipName = orderToEdit.ShipName,
-                ShipAddress = orderToEdit.ShipAddress,
-                ShipCity = orderToEdit.ShipCity,
-                ShipRegion = orderToEdit.ShipRegion,
-                ShipPostalCode = orderToEdit.ShipPostalCode,
-                ShipCountry = orderToEdit.ShipCountry,
-                Order_Details = orderToEdit.Order_Details
-            };
-            return orderEdited;
+             orderRepository.GetById(id); 
+        }
+
+        public int BuscarEmployeeID(string n, string a)
+        {
+            return orderRepository.GetEmployeeID(n, a);
 
         }
+
+        public int GetProductID(string nombre)
+        {
+            return orderRepository.GetByName(nombre);
+        }
+
+        public decimal GetProductPrice(int id)
+        {
+            return orderRepository.GetPrice(id);
+        }
+        public decimal GetOrderTotal(int id)
+        {
+            return orderRepository.GetTotal(id);
+        }
+
         
-        public void Modificar(OrderDTO orderEdited)
-        {
-            var newOrder = new Orders()
-            {
-                OrderID = orderEdited.OrderID,
-                CustomerID = orderEdited.CustomerID,
-                Customers = orderEdited.Customers,
-                EmployeeID = orderEdited.EmployeeID,
-                Employees = orderEdited.Employees,
-                OrderDate = orderEdited.OrderDate,
-                RequiredDate = orderEdited.RequiredDate,
-                ShippedDate = orderEdited.ShippedDate,
-                ShipVia = orderEdited.ShipVia,
-                Freight = orderEdited.Freight,
-                ShipName = orderEdited.ShipName,
-                ShipAddress = orderEdited.ShipAddress,
-                ShipCity = orderEdited.ShipCity,
-                ShipRegion = orderEdited.ShipRegion,
-                ShipPostalCode = orderEdited.ShipPostalCode,
-                ShipCountry = orderEdited.ShipCountry,
-                Order_Details = orderEdited.Order_Details
-            };
-            
-            orderRepository.Update(newOrder);
-            orderRepository.SaveChanges();
 
-        }
 
-      
-       
+
+        //public OrderDTO PartialModificar(int id)
+        //{
+        //    var orderToEdit = orderRepository.GetById(id);
+        //    var orderEdited = new OrderDTO()
+        //    {
+        //        OrderID = orderToEdit.OrderID,
+        //        CustomerID = orderToEdit.CustomerID,
+        //        EmployeeID = orderToEdit.EmployeeID,
+        //        OrderDate = orderToEdit.OrderDate,
+        //        RequiredDate = orderToEdit.RequiredDate,
+        //        ShipName = orderToEdit.ShipName,
+        //        ShipAddress = orderToEdit.ShipAddress,
+        //        ShipCity = orderToEdit.ShipCity,
+        //        ShipRegion = orderToEdit.ShipRegion,
+        //        ShipPostalCode = orderToEdit.ShipPostalCode,
+        //        ShipCountry = orderToEdit.ShipCountry
+        //    };
+        //    return orderEdited;
+
+        //}
+
+        //public void Modificar(OrderDTO orderEdited)
+        //{
+        //    var newOrder = new Orders()
+        //    {
+        //        OrderID = orderEdited.OrderID,
+        //        CustomerID = orderEdited.CustomerID,
+        //        EmployeeID = orderEdited.EmployeeID,
+        //        OrderDate = orderEdited.OrderDate,
+        //        RequiredDate = orderEdited.RequiredDate,
+        //        ShipName = orderEdited.ShipName,
+        //        ShipAddress = orderEdited.ShipAddress,
+        //        ShipCity = orderEdited.ShipCity,
+        //        ShipRegion = orderEdited.ShipRegion,
+        //        ShipPostalCode = orderEdited.ShipPostalCode,
+        //        ShipCountry = orderEdited.ShipCountry
+        //    };
+
+        //    orderRepository.Update(newOrder);
+        //    orderRepository.SaveChanges();
+
+        //}
+
+
+
     }
 }

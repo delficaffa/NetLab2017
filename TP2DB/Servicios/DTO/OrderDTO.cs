@@ -6,7 +6,7 @@ namespace Servicios.DTO
 {
    public class OrderDTO
     {
-        //blic int OrderID { get; set; }
+        public int OrderID { get; set; }
 
         public string CustomerID { get; set; }
 
@@ -15,12 +15,6 @@ namespace Servicios.DTO
         public DateTime? OrderDate { get; set; }
 
         public DateTime? RequiredDate { get; set; }
-
-       //public DateTime? ShippedDate { get; set; }
-
-        //public int? ShipVia { get; set; }
-
-       // public decimal? Freight { get; set; }
 
         public string ShipName { get; set; }
 
@@ -34,14 +28,20 @@ namespace Servicios.DTO
 
         public string ShipCountry { get; set; }
 
-        // public virtual Customers Customers { get; set; }
+        public ICollection<OrderDetailDTO> OrderDetail { get; set; }
 
-        //public virtual Employees Employees { get; set; }
+    }
 
-        // public virtual ICollection<Order_Details> Order_Details { get; set; }
+    public class OrderDetailDTO
+    {
+        public int OrderID { get; set; }
 
-        // public virtual Shippers Shippers { get; set; }
+        public int ProductID { get; set; }
 
-       //-----> public ICollection<OrderDetailDto> OrderDetailDtos { get; set; }
+        public decimal UnitPrice { get; set; }
+
+        public short Quantity { get; set; }
+
+        public float Discount { get; set; }
     }
 }

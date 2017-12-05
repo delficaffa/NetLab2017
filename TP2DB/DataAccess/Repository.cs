@@ -42,7 +42,8 @@ namespace DataAccess
         {
             return _context.Set<T>().ToList();
         }
-       
+
+
 
         public T GetById(int id)
         {
@@ -54,6 +55,48 @@ namespace DataAccess
             _context.SaveChanges();
         }
 
+        // A LA MIERCOLE LO GENERICO
+        public int GetByName(string nombre)
+        {
+            int id;
+            return id = _context.Products
+                    .FirstOrDefault(c => c.ProductName == nombre)
+                    .ProductID;
+        }
+
+        public decimal GetPrice(int id)
+        {
+            var price = 0m;
+            return price = _context.Products
+                    .FirstOrDefault(c => c.ProductID == id)
+                    .UnitPrice.GetValueOrDefault();
+
+        }
+
+        public decimal GetTotal(int id)
+        {
+            var total = 0m;
+            return total = _context.Orders
+                    .FirstOrDefault(c => c.OrderID == id)
+                    .Order_Details
+                    .Sum(c => (c.UnitPrice * c.Quantity) - ((c.UnitPrice * c.Quantity) * (decimal)c.Discount));
+        }
+
+        public Customers GetById(string id)
+        {
+            return _context.Customers.Find(id);
+        }
+
+        public int GetEmployeeID(string name, string surname)
+        {
+            var employeeID = 0;
+            employeeID = _context.Employees
+                    .FirstOrDefault(e => e.FirstName == name && e.LastName == surname)
+                    .EmployeeID;
+
+            return employeeID;
+
+        }
     }
 }
 
