@@ -8,13 +8,12 @@ namespace Presentacion
     {
         static void Main(string[] args)
         {
-            var servicio = new Servicios.Consultas();
+            
             string opcion;
             do
             {
                 Console.WriteLine("\nIngrese la opcion deseada:");
                 Console.WriteLine("\t'C' - Create\n\t'R' - Read\n\t'U' - Update\n\t'D' - Delete\n\t'E' - Exit");
-                Console.WriteLine("ALFKI - Davolio - Nancy"); //<----- BORRARRRRRRR
                 opcion = Console.ReadLine();
 
                 switch (opcion.ToLower())
@@ -24,14 +23,7 @@ namespace Presentacion
                         break;
 
                     case "r":
-                        Console.WriteLine("ID FACTURA - NOMBRE CLIENTE - IMPORTE TOTAL");
-                        Console.WriteLine("------------------------------------------");
-                        var lista = servicio.Read();
-                        foreach (var item in lista)
-                        {
-                            Console.WriteLine($"{item.OrderID}\t{item.CustomerName}\t${item.Freight}");
-                        }
-
+                        MenuRead();
                         break;
 
                     case "u":
@@ -39,20 +31,29 @@ namespace Presentacion
                         break;
 
                     case "d":
-                        int id;
-                        Console.WriteLine("Ingrese el ID de la orden a eliminar. ");
-                        int.TryParse(Console.ReadLine(), out id);
-                        //Eliminar las orderDetails sino no me la va a eliminar
-                        servicio.Eliminar(id);
-
+                        MenuDelete();
                         break;
                 }
             } while (opcion != "e");
 
             Console.WriteLine("Fin del programa, ingrese una tecla para continuar");
             Console.ReadLine();
-            
+
         }
+
+        private static void MenuDelete()
+        {
+            var servicio = new Servicios.Consultas();
+            int idOrder;
+            Console.WriteLine("Ingrese el ID de la orden a eliminar. ");
+            Console.WriteLine("PRUEBAS:");//<----- BORRARRRRRRR
+            Console.WriteLine("\tID 11076 - BONAP - FRANCIA");//<----- BORRARRRRRRR
+            Console.WriteLine("\tID 11077 - RATTC - USA");//<----- BORRARRRRRRR
+            int.TryParse(Console.ReadLine(), out idOrder);
+            servicio.Eliminar(idOrder);
+
+        }
+
 
         private static void MenuCreate()
         {
@@ -64,12 +65,14 @@ namespace Presentacion
             {
                 try
                 {
+                    Console.WriteLine("DATOS DE PRUEBA:");//<----- BORRARRRRRRR
+                    Console.WriteLine("ALFKI - Davolio - Nancy - chai - tofu"); //<----- BORRARRRRRRR
 
                     Console.Write("Ingrese el ID del cliente: ");
                     var id = Console.ReadLine().ToUpper();
                     servicio.BuscarkCustomerID(id);
                     nuevaOrder.CustomerID = id; //<-----------------------
-
+      
                     var employeeID = 0;
                     do
                     {
@@ -82,7 +85,7 @@ namespace Presentacion
                         employeeID = servicio.BuscarEmployeeID(nombre, apellido);
 
                         if (employeeID == 0)
-                            Console.WriteLine("NOP.. OTRA VEZ"); //<-----------------------
+                            Console.WriteLine("No existe ese empleado intentelo nuevamente."); //<-----------------------
                     } while (employeeID == 0);
                     nuevaOrder.EmployeeID = employeeID;
 
@@ -90,7 +93,7 @@ namespace Presentacion
                     Console.Write("Ingrese la fecha en el siguiente formato dd-mm-yyyy: ");
 
                     DateTime date;
-                    DateTime.TryParse(Console.ReadLine(), out date); //TryParse es suficiente para verificar la fecha?..chan chan chaaaan
+                    DateTime.TryParse(Console.ReadLine(), out date); //VALIDAR FORMATO DE LA FECHA!!!
                     nuevaOrder.RequiredDate = date;
 
                     Console.Write("Ingrese el nombre del envío: ");//<----------- keh?!
@@ -110,9 +113,9 @@ namespace Presentacion
 
                     Console.Write("Ingrese el pais de destino: ");
                     nuevaOrder.ShipCountry = Console.ReadLine();
-                    
+
                     //----------------- ORDER DETAIL
-                    
+
                     nuevaOrder.OrderDetail = new List<OrderDetailDTO>();
                     string opcion;
                     do
@@ -123,7 +126,7 @@ namespace Presentacion
                         if (opcion == "a")
                         {
                             var orderDetail = new OrderDetailDTO();
-                            orderDetail.OrderID = nuevaOrder.OrderID;
+                            orderDetail.Orders.OrderID = nuevaOrder.OrderID;//<---------- NO PUEDO ASIGNARLE UN ID QUE TODAVIA NO SE GENERO!!!
                             do
                             {
                                 Console.Write("Ingrese el nombre del producto: ");
@@ -164,7 +167,7 @@ namespace Presentacion
                     } while (opcion != "s");
 
                     nuevaOrder.OrderID = servicio.Agregar(nuevaOrder);
-                    
+
                     var total = servicio.GetOrderTotal(nuevaOrder.OrderID);
 
                     Console.WriteLine($"La Orden ID: {nuevaOrder.OrderID} con importe total ${total} se ha creado correctamente.");
@@ -184,6 +187,18 @@ namespace Presentacion
 
             }
 
+        }
+
+        private static void MenuRead()
+        {
+            var servicio = new Servicios.Consultas();
+            Console.WriteLine("ID FACTURA - NOMBRE CLIENTE - IMPORTE TOTAL");
+            Console.WriteLine("------------------------------------------");
+            var lista = servicio.Read();
+            foreach (var item in lista)
+            {
+                Console.WriteLine($"{item.OrderID}\t{item.CustomerName}\t${servicio.GetOrderTotal(item.OrderID)}");
+            }
         }
     }
 }

@@ -43,5 +43,7 @@ namespace Servicios.DTO
         public short Quantity { get; set; }
 
         public float Discount { get; set; }
+
+        public virtual OrderDTO Orders { get; set; }
     }
 }

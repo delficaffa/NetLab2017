@@ -10,13 +10,13 @@ namespace Servicios
     public class Consultas
     {
         private Repository<Orders> orderRepository;
-
+        
         public Consultas()
         {
             orderRepository = new Repository<Orders>();
         }
 
-      
+
         public int Agregar(OrderDTO orderDto)
         {
             var order = new Orders()
@@ -30,7 +30,7 @@ namespace Servicios
                 ShipRegion = orderDto.ShipRegion,
                 ShipPostalCode = orderDto.ShipPostalCode,
                 ShipCountry = orderDto.ShipCountry
-                
+
             };
 
             var orderDetails = new List<Order_Details>();
@@ -48,12 +48,12 @@ namespace Servicios
 
                 orderDetails.Add(orderDetail);
             }
-          
+
             orderRepository.Persist(order);
             orderRepository.SaveChanges();
             return order.OrderID;
         }
-        
+
         public List<OrderGetDTO> Read()
         {
             var list = new List<OrderGetDTO>();
@@ -74,23 +74,36 @@ namespace Servicios
 
         public void Eliminar(int id)
         {
-            var deleteOrder = orderRepository.GetById(id);
-            var pais = deleteOrder.Customers.Country;
-            if (pais == "Mexico" || pais == "France")
+            try
             {
-                Console.WriteLine("No se puede eliminar esta orden");
-            }
-            else
+                var deleteOrder = orderRepository.GetById(id);
+                var pais = deleteOrder.Customers.Country;
+                if (pais == "Mexico" || pais == "France")
+                {
+                    Console.WriteLine("No se pueden eliminar ordenes de FRANCIA o MEXICO");
+                }
+                else
+                { 
+                   
+                    foreach (var detail in deleteOrder.Order_Details)           //<------------- Dsp de la primera vuelta se va al catch
+                    {
+                        deleteOrder.Order_Details.Remove(detail);
+                    }
+                    orderRepository.Remove(deleteOrder);
+                    orderRepository.SaveChanges();
+                    Console.WriteLine("Orden eliminada Correctamente");
+                    }
+                }
+            catch (InvalidOperationException)
             {
-                orderRepository.Remove(deleteOrder);
-                Console.WriteLine("Orden eliminada Correctamente");
-                orderRepository.SaveChanges();
+                Console.WriteLine("No se pudo eliminar la orden..");
             }
+
         }
 
         public void BuscarkCustomerID(string id)
         {
-             orderRepository.GetById(id); 
+            orderRepository.GetById(id);
         }
 
         public int BuscarEmployeeID(string n, string a)
@@ -113,7 +126,7 @@ namespace Servicios
             return orderRepository.GetTotal(id);
         }
 
-        
+
 
 
 
