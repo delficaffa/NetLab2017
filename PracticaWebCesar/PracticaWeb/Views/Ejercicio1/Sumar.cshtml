@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="/Ejercicio1/Sumar" method="post" >
+
+        <label>var 1: </label>
+        <input type="number" name="a" /> 
+        <label>var 2: </label>
+        <input type="number" name="b" />
+        <label>var 3: </label>
+        <input type="number" name="c" />
+        <button type="submit" >Calculate</button>
+
+        @ViewData["resultado"]  
+
+    
+    </form>
+</body>
+</html>
