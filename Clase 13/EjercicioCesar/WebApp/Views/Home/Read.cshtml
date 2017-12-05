@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Business.Dtos.CustomerDto>
+
+<div style="padding-top : 5%" align="center">
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Adress</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Phone</th>
+        </tr>
+
+        @foreach (var c in this.Model)
+        {
+            <tr>
+                <td>@c.CustomerID</td>
+                <td>@c.ContactName</td>
+                <td>@c.CompanyName</td>
+                <td>@c.Address</td>
+                <td>@c.City</td>
+                <td>@c.Country</td>
+                <td>@c.Phone</td>
+                <td>
+                    <a href="/home/delete?customerID=@c.CustomerID">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
