@@ -1,7 +1,5 @@
 ﻿using System;
-using Servicios;
 using Servicios.DTO;
-using System.Globalization;
 using System.Collections.Generic;
 
 namespace Presentacion
@@ -14,8 +12,9 @@ namespace Presentacion
             string opcion;
             do
             {
-                Console.WriteLine("\nIngrese la opcion deseada");
+                Console.WriteLine("\nIngrese la opcion deseada:");
                 Console.WriteLine("\t'C' - Create\n\t'R' - Read\n\t'U' - Update\n\t'D' - Delete\n\t'E' - Exit");
+                Console.WriteLine("ALFKI - Davolio - Nancy"); //<----- BORRARRRRRRR
                 opcion = Console.ReadLine();
 
                 switch (opcion.ToLower())
@@ -51,9 +50,7 @@ namespace Presentacion
 
             Console.WriteLine("Fin del programa, ingrese una tecla para continuar");
             Console.ReadLine();
-
-
-
+            
         }
 
         private static void MenuCreate()
@@ -112,8 +109,7 @@ namespace Presentacion
 
                     Console.Write("Ingrese el pais de destino: ");
                     nuevaOrder.ShipCountry = Console.ReadLine();
-                    //ShippedDate,ShipVia,Freight..
-
+                    
                     //----------------- ORDER DETAIL
 
 
@@ -128,7 +124,7 @@ namespace Presentacion
                         {
                             var orderDetail = new OrderDetailDTO();
 
-                            orderDetail.OrderID = 10000; //<----------- Autogen?..
+                             
 
                             do
                             {
@@ -169,7 +165,7 @@ namespace Presentacion
 
                     } while (opcion != "s");
 
-                    servicio.Agregar(nuevaOrder);
+                    nuevaOrder.OrderID = servicio.Agregar(nuevaOrder);
 
                     var total = servicio.GetOrderTotal(nuevaOrder.OrderID);
 
@@ -181,7 +177,7 @@ namespace Presentacion
                 }
                 catch (InvalidOperationException)
                 {
-                    Console.WriteLine("Error!");
+                    Console.WriteLine("Error catastrofico!");
 
                 }
                 Console.WriteLine("Desea volver a intentarlo? S/N");

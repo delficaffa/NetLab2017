@@ -1,0 +1,26 @@
+﻿
+@model HttpRequestBase
+
+<h1>Url</h1>
+<h3>AbsolutePath : @Model.Url.AbsolutePath</h3>
+<h3>Host : @Model.Url.Host</h3>
+<h3>Port : @Model.Url.Port</h3>
+
+<br />
+
+<h1>User</h1>
+<h3>RequestType : @Model.RequestType</h3>
+<h3>UserAgent : @Model.UserAgent</h3>
+<h3>UserHostAddress : @Model.UserHostAddress</h3>
+<h3>UserHostName : @Model.UserHostName</h3>
+
+<br />
+
+<h1>Cookies</h1>
+<h3>Cookies Count : @Model.Cookies.Count</h3>
+<h3>example : @Model.Cookies["example"].Value</h3>
+
+
+<br />
+
+<h3>Page count: @HttpContext.Current.Application.["page-count"]</h3>

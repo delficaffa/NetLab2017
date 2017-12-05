@@ -17,7 +17,7 @@ namespace Servicios
         }
 
       
-        public void Agregar(OrderDTO orderDto)
+        public int Agregar(OrderDTO orderDto)
         {
             var order = new Orders()
             {
@@ -51,11 +51,9 @@ namespace Servicios
           
             orderRepository.Persist(order);
             orderRepository.SaveChanges();
+            return order.OrderID;
         }
         
-
-
-
         public List<OrderGetDTO> Read()
         {
             var list = new List<OrderGetDTO>();

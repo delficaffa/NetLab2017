@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindApp", "NorthwindApp\NorthwindApp.csproj", "{B7A1220C-0A7A-4BE8-9050-8B4D42F85CBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunes4", "Lunes4\Lunes4.csproj", "{9C52FD88-2707-4BB3-AF96-8A694CFED37B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCFilters", "MVCFilters\MVCFilters.csproj", "{7C2E9A84-9572-4477-AE9D-5DCDCCCB5B8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B7A1220C-0A7A-4BE8-9050-8B4D42F85CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7A1220C-0A7A-4BE8-9050-8B4D42F85CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7A1220C-0A7A-4BE8-9050-8B4D42F85CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C52FD88-2707-4BB3-AF96-8A694CFED37B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C52FD88-2707-4BB3-AF96-8A694CFED37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C52FD88-2707-4BB3-AF96-8A694CFED37B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C52FD88-2707-4BB3-AF96-8A694CFED37B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2E9A84-9572-4477-AE9D-5DCDCCCB5B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2E9A84-9572-4477-AE9D-5DCDCCCB5B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2E9A84-9572-4477-AE9D-5DCDCCCB5B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2E9A84-9572-4477-AE9D-5DCDCCCB5B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

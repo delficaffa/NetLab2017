@@ -42,9 +42,7 @@ namespace DataAccess
         {
             return _context.Set<T>().ToList();
         }
-
-
-
+        
         public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
@@ -73,13 +71,14 @@ namespace DataAccess
 
         }
 
-        public decimal GetTotal(int id)
+        public decimal GetTotal(int id) //<<------- NO ANDA....
         {
             var total = 0m;
-            return total = _context.Orders
+            total = _context.Orders
                     .FirstOrDefault(c => c.OrderID == id)
                     .Order_Details
                     .Sum(c => (c.UnitPrice * c.Quantity) - ((c.UnitPrice * c.Quantity) * (decimal)c.Discount));
+            return total;
         }
 
         public Customers GetById(string id)
