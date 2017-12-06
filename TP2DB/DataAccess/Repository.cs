@@ -70,7 +70,6 @@ namespace DataAccess
             return price = _context.Products
                     .FirstOrDefault(c => c.ProductID == id)
                     .UnitPrice.GetValueOrDefault();
-
         }
 
         public decimal GetTotal(int id) 

@@ -149,7 +149,6 @@ namespace ConsoleApp
             } while (input != "q");
         }
 
-
         static void UpdateMenu()
         {
             Console.Write("Ingrese ID del cliente a editar: ");

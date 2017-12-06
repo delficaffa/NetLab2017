@@ -29,10 +29,9 @@ namespace Servicios
                 ShipRegion = orderDto.ShipRegion,
                 ShipPostalCode = orderDto.ShipPostalCode,
                 ShipCountry = orderDto.ShipCountry
-
             };
 
-            var orderDetails = new List<Order_Details>();
+           // var orderDetails = new List<Order_Details>();//
             var orderDetailsDTO = orderDto.OrderDetail;
             foreach (var detail in orderDetailsDTO)
             {
@@ -45,7 +44,7 @@ namespace Servicios
                     Discount = detail.Discount
                 };
 
-                orderDetails.Add(orderDetail);
+                order.Order_Details.Add(orderDetail);
             }
 
             orderRepository.Persist(order);
@@ -140,52 +139,53 @@ namespace Servicios
             return orderRepository.GetTotal(id);
         }
 
+        public OrderDTO GetOrderID(int id)
+        {
+            return FillData(orderRepository.GetById(id));
+        }
 
+        public OrderDTO FillData(Orders order)
+        {
+            return new OrderDTO()
+            {
+                OrderID = order.OrderID,
+                CustomerID = order.CustomerID,
+                EmployeeID = order.EmployeeID,
+                OrderDate = order.OrderDate,
+                RequiredDate = order.RequiredDate,
+                ShipName = order.ShipName,
+                ShipAddress = order.ShipAddress,
+                ShipCity = order.ShipCity,
+                ShipRegion = order.ShipRegion,
+                ShipPostalCode = order.ShipPostalCode,
+                ShipCountry = order.ShipCountry
+            };
+        }
+        public Orders FillDataInvert(OrderDTO order)
+        {
+            var neworder = orderRepository.GetById(order.OrderID);
 
+            neworder.OrderID = order.OrderID;
+            neworder.CustomerID = order.CustomerID;
+            neworder.EmployeeID = order.EmployeeID;
+            neworder.OrderDate = order.OrderDate;
+            neworder.RequiredDate = order.RequiredDate;
+            neworder.ShipName = order.ShipName;
+            neworder.ShipAddress = order.ShipAddress;
+            neworder.ShipCity = order.ShipCity;
+            neworder.ShipRegion = order.ShipRegion;
+            neworder.ShipPostalCode = order.ShipPostalCode;
+            neworder.ShipCountry = order.ShipCountry;
+            return neworder;
 
+        }
 
-        //public OrderDTO PartialModificar(int id)
-        //{
-        //    var orderToEdit = orderRepository.GetById(id);
-        //    var orderEdited = new OrderDTO()
-        //    {
-        //        OrderID = orderToEdit.OrderID,
-        //        CustomerID = orderToEdit.CustomerID,
-        //        EmployeeID = orderToEdit.EmployeeID,
-        //        OrderDate = orderToEdit.OrderDate,
-        //        RequiredDate = orderToEdit.RequiredDate,
-        //        ShipName = orderToEdit.ShipName,
-        //        ShipAddress = orderToEdit.ShipAddress,
-        //        ShipCity = orderToEdit.ShipCity,
-        //        ShipRegion = orderToEdit.ShipRegion,
-        //        ShipPostalCode = orderToEdit.ShipPostalCode,
-        //        ShipCountry = orderToEdit.ShipCountry
-        //    };
-        //    return orderEdited;
+        public void Modificar(OrderDTO orderEdited)
+        {
+            this.orderRepository.Update(FillDataInvert(orderEdited));
+            orderRepository.SaveChanges();
 
-        //}
-
-        //public void Modificar(OrderDTO orderEdited)
-        //{
-        //    var newOrder = new Orders()
-        //    {
-        //        OrderID = orderEdited.OrderID,
-        //        CustomerID = orderEdited.CustomerID,
-        //        EmployeeID = orderEdited.EmployeeID,
-        //        OrderDate = orderEdited.OrderDate,
-        //        RequiredDate = orderEdited.RequiredDate,
-        //        ShipName = orderEdited.ShipName,
-        //        ShipAddress = orderEdited.ShipAddress,
-        //        ShipCity = orderEdited.ShipCity,
-        //        ShipRegion = orderEdited.ShipRegion,
-        //        ShipPostalCode = orderEdited.ShipPostalCode,
-        //        ShipCountry = orderEdited.ShipCountry
-        //    };
-
-        //    orderRepository.Update(newOrder);
-        //    orderRepository.SaveChanges();
-
-        //}
+        }
 
 
 

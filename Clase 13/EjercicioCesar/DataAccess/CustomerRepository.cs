@@ -45,7 +45,7 @@ namespace DataAccess
             using (var context = new TestEntities())
             {
                 var customer = context.Customers
-                    .FirstOrDefault(t => t.CustomerID == t.CustomerID);
+                    .FirstOrDefault(t => t.CustomerID == c.CustomerID);
 
                 customer.ContactName = c.ContactName;
                 customer.CompanyName = c.CompanyName;

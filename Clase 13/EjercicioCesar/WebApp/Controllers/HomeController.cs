@@ -15,10 +15,23 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            //ViewBag.Title = "Clients C.R.U.D.";
-            return View();
+           return View();
+        }
+        // ---------- UPDATE
+        public ActionResult Update(string customerId)
+        {
+            var customer = service.ReadCustomer(customerId);
+            return View(customer);
+        }
+       
+        [HttpPost]
+        public ActionResult Update(CustomerDto customer)
+        {
+            service.UpdateServiceCustomer(customer);
+            return View("read", service.ReadCustomers());
         }
 
+        // ---------- CREATE
         public ActionResult Create()
         {
             return View();
@@ -31,16 +44,13 @@ namespace WebApp.Controllers
             return View("read", service.ReadCustomers());
         }
 
+        // ---------- READ
         public ActionResult Read()
         {
             return View(service.ReadCustomers());
         }
 
-        public ActionResult Update()
-        {
-            return View();
-        }
-
+        // ---------- DELETE
         public ActionResult Delete(string customerID)
         {
             service.DeleteServiceCustomer(customerID);

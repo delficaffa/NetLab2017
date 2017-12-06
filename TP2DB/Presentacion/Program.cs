@@ -8,7 +8,7 @@ namespace Presentacion
     {
         static void Main(string[] args)
         {
-
+           
             string opcion;
             do
             {
@@ -27,7 +27,7 @@ namespace Presentacion
                         break;
 
                     case "u":
-
+                        MenuEdit();
                         break;
 
                     case "d":
@@ -41,6 +41,64 @@ namespace Presentacion
 
         }
 
+        private static void MenuEdit()
+        {
+            var servicio = new Servicios.Consultas();
+            Console.WriteLine("Ingrese el ID de la orden:");
+            var id = int.Parse(Console.ReadLine());
+            var ordenEditar = servicio.GetOrderID(id);
+
+
+            //PEDIDO DE DATOS
+
+            do
+            {
+                Console.Write("Ingrese el nombre del empleado: ");
+                var nombre = Console.ReadLine();
+
+                Console.Write("Ingrese el apellido del empleado: ");
+                var apellido = Console.ReadLine();
+
+                ordenEditar.EmployeeID = servicio.BuscarEmployeeID(nombre, apellido);
+
+                if (ordenEditar.EmployeeID == 0)
+                    Console.WriteLine("No existe ese empleado intentelo nuevamente.");
+            } while (ordenEditar.EmployeeID == 0);
+
+
+            ordenEditar.OrderDate = DateTime.Today;
+            Console.Write("Ingrese la fecha en el siguiente formato dd-mm-yyyy: ");
+
+            DateTime date;
+            DateTime.TryParse(Console.ReadLine(), out date); //VALIDAR FORMATO DE LA FECHA!!!
+            ordenEditar.RequiredDate = date;
+
+            Console.Write("Ingrese el nombre del envío: ");
+            ordenEditar.ShipName = Console.ReadLine();
+
+            Console.Write("Ingrese la direccion de destino: ");
+            ordenEditar.ShipAddress = Console.ReadLine();
+
+            Console.Write("Ingrese la ciudad de destino: ");
+            ordenEditar.ShipCity = Console.ReadLine();
+
+            Console.Write("Ingrese la region de destino: ");
+            ordenEditar.ShipRegion = Console.ReadLine();
+
+            Console.Write("Ingrese el codigo postal de destino: ");
+            ordenEditar.ShipPostalCode = Console.ReadLine();
+
+            Console.Write("Ingrese el pais de destino: ");
+            ordenEditar.ShipCountry = Console.ReadLine();
+            
+            servicio.Modificar(ordenEditar);
+
+            
+            Console.ReadLine();
+
+
+        }
+
         private static void MenuDelete()
         {
             var servicio = new Servicios.Consultas();
@@ -50,8 +108,7 @@ namespace Presentacion
             servicio.Eliminar(idOrder);
 
         }
-
-
+        
         private static void MenuCreate()
         {
             var servicio = new Servicios.Consultas();
@@ -130,7 +187,6 @@ namespace Presentacion
                 {
                     var orderDetail = new OrderDetailDTO();
                     
-                    //orderDetail.Orders.OrderID = 100;//<---------- NO PUEDO ASIGNARLE UN ID QUE TODAVIA NO SE GENERO!!!
                     do
                     {
                         Console.Write("Ingrese el nombre del producto: ");
