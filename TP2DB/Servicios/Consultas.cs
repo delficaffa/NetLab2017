@@ -15,8 +15,7 @@ namespace Servicios
         {
             orderRepository = new Repository<Orders>();
         }
-
-
+        
         public int Agregar(OrderDTO orderDto)
         {
             var order = new Orders()
@@ -74,36 +73,50 @@ namespace Servicios
 
         public void Eliminar(int id)
         {
-            try
+           var repeat = true;
+            while(repeat)
             {
-                var deleteOrder = orderRepository.GetById(id);
-                var pais = deleteOrder.Customers.Country;
-                if (pais == "Mexico" || pais == "France")
+                try
                 {
-                    Console.WriteLine("No se pueden eliminar ordenes de FRANCIA o MEXICO");
-                }
-                else
-                { 
-                   
-                    foreach (var detail in deleteOrder.Order_Details)           //<------------- Dsp de la primera vuelta se va al catch
+                    var deleteOrder = orderRepository.GetById(id);
+                    if (deleteOrder != null)
                     {
-                        deleteOrder.Order_Details.Remove(detail);
+                        var pais = deleteOrder.Customers.Country;
+                        if (pais == "Mexico" || pais == "France")
+                        {
+                            Console.WriteLine("No se pueden eliminar ordenes de FRANCIA o MEXICO");
+                        }
+                        else
+                        {
+                            foreach (var detail in deleteOrder.Order_Details)           //EL FOREACH NO TIENE RECURSION. 
+                            {
+                                deleteOrder.Order_Details.Remove(detail);
+                            }
+                            orderRepository.Remove(deleteOrder);
+                            orderRepository.SaveChanges();
+                            Console.WriteLine("Orden eliminada Correctamente");
+                        }
                     }
-                    orderRepository.Remove(deleteOrder);
-                    orderRepository.SaveChanges();
-                    Console.WriteLine("Orden eliminada Correctamente");
+                    else
+                    {
+                        Console.WriteLine($"No existe una orden con el ID: {id}");
+                        break;
                     }
                 }
-            catch (InvalidOperationException)
-            {
-                Console.WriteLine("No se pudo eliminar la orden..");
-            }
-
+                catch (InvalidOperationException)
+                {
+                    Console.WriteLine("No se pudo eliminar la orden..");
+                }
+            } 
+            Console.WriteLine("Desea volver a intentarlo? S/N");
+            string go = Console.ReadLine();
+            repeat = go.ToLower() == "s";
         }
 
-        public void BuscarkCustomerID(string id)
+        public bool BuscarCustomerID(string id)
         {
-            orderRepository.GetById(id);
+            return orderRepository.GetById(id);
+                  
         }
 
         public int BuscarEmployeeID(string n, string a)
@@ -121,6 +134,7 @@ namespace Servicios
         {
             return orderRepository.GetPrice(id);
         }
+
         public decimal GetOrderTotal(int id)
         {
             return orderRepository.GetTotal(id);

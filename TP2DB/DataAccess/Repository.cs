@@ -46,6 +46,7 @@ namespace DataAccess
         public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
+           
         }
 
         public void SaveChanges()
@@ -72,19 +73,19 @@ namespace DataAccess
 
         }
 
-        public decimal GetTotal(int id) //<<------- NO ANDA....
+        public decimal GetTotal(int id) 
         {
             var total = 0m;
             total = _context.Orders
-                    .FirstOrDefault(c => c.OrderID == id)
+                    .FirstOrDefault(t => t.OrderID == id)
                     .Order_Details
-                    .Sum(c => (c.UnitPrice * c.Quantity) - ((c.UnitPrice * c.Quantity) * (decimal)c.Discount));
+                    .Sum(t => (t.UnitPrice * t.Quantity) - ((t.UnitPrice * t.Quantity) * (decimal)t.Discount));
             return total;
         }
 
-        public Customers GetById(string id)
+        public bool GetById(string id)
         {
-            return _context.Customers.Find(id);
+            return _context.Customers.Find(id) != null;
         }
 
         public int GetEmployeeID(string name, string surname)
