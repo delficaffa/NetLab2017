@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,19 +17,19 @@ namespace DataAccess
             _context = new DataBase();
         }
 
-        public T Persist(T entity)
+        public void Persist(T entity)
         {
-            return _context.Set<T>().Add(entity);
+            _context.Entry<T>(entity).State = EntityState.Added;
         }
 
         public void Remove(T entity)
         {
-            _context.Set<T>().Remove(entity);
+            _context.Entry<T>(entity).State = EntityState.Deleted;
         }
 
         public T Update(T entity)
         {
-            _context.Entry<T>(entity);
+            _context.Entry<T>(entity).State = EntityState.Modified;
 
             return entity;
         }
@@ -45,8 +46,7 @@ namespace DataAccess
         
         public T GetById(int id)
         {
-            return _context.Set<T>().Find(id);
-           
+            return _context.Set<T>().Find(id); 
         }
 
         public void SaveChanges()
@@ -89,13 +89,21 @@ namespace DataAccess
 
         public int GetEmployeeID(string name, string surname)
         {
-            var employeeID = 0;
-            employeeID = _context.Employees
-                    .FirstOrDefault(e => e.FirstName == name && e.LastName == surname)
-                    .EmployeeID;
+            try
+            {
+                var employeeID = 0;
+                employeeID = _context.Employees
+                        .FirstOrDefault(e => e.FirstName == name && e.LastName == surname)
+                        .EmployeeID;
 
-            return employeeID;
+                return employeeID;
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("No existe ese empleado.");
+            }
 
+            return 0;
         }
     }
 }

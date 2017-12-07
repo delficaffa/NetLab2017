@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consultas.cs" />
+    <Compile Include="DTO\MejorPorPaisDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="DTO\OrderGetDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
