@@ -53,8 +53,6 @@ namespace DataAccess
         {
             _context.SaveChanges();
         }
-
-        // CHAU CHAU GENERICO... te extrañaremos
        
         public int GetByName(string nombre)
         {

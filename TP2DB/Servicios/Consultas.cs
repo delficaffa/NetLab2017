@@ -243,8 +243,10 @@ namespace Servicios
                     Country = order.Customers.Country
                 });
             }
-            mejoresXPais.GroupBy(c => c.Country).ToList();
-            return mejoresXPais;
+            return mejoresXPais.GroupBy(g => g.Country, StringComparer.OrdinalIgnoreCase)
+                      .Select(g => g.First())
+                      .ToList();
+
         }
 
     }

@@ -53,8 +53,7 @@ namespace Presentacion
             Console.WriteLine("Ingrese el ID de la orden:");
             var id = int.Parse(Console.ReadLine());
             var ordenEditar = servicio.GetOrderID(id);
-
-
+            
             //PEDIDO DE DATOS
 
             do
@@ -100,8 +99,6 @@ namespace Presentacion
             Console.WriteLine("Orden modificada con exito!");
 
             Console.ReadLine();
-
-
         }
 
         private static void MenuDelete()
@@ -118,11 +115,7 @@ namespace Presentacion
         {
             var servicio = new Servicios.Consultas();
             var nuevaOrder = new OrderDTO();
-
-            Console.WriteLine("DATOS DE PRUEBA:");//<----- BORRARRRRRRR
-            Console.WriteLine("ALFKI - Davolio - Nancy - chai - tofu"); //<----- BORRARRRRRRR
-
-
+            
             do
             {
                 Console.Write("Ingrese el ID del cliente: ");
@@ -153,13 +146,17 @@ namespace Presentacion
                     Console.WriteLine("Intentelo nuevamente.");
             } while (nuevaOrder.EmployeeID == 0);
 
+            do
+            {
+                nuevaOrder.OrderDate = DateTime.Today;
+                Console.Write("Ingrese la fecha en el siguiente formato dd-mm-yyyy: ");
 
-            nuevaOrder.OrderDate = DateTime.Today;
-            Console.Write("Ingrese la fecha en el siguiente formato dd-mm-yyyy: ");
+                DateTime date;
+                DateTime.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+                nuevaOrder.RequiredDate = date;
 
-            DateTime date;
-            DateTime.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, DateTimeStyles.None, out date); 
-            nuevaOrder.RequiredDate = date;
+            } while (nuevaOrder.RequiredDate == null);
+         
 
             Console.Write("Ingrese el nombre del envío: ");
             nuevaOrder.ShipName = Console.ReadLine();
@@ -235,14 +232,9 @@ namespace Presentacion
 
             var total = servicio.GetOrderTotal(nuevaOrder.OrderID);
 
-            Console.WriteLine($"La Orden ID: {nuevaOrder.OrderID} con importe total $ {total} se ha creado correctamente.");//<-----DEVUELVE CERO!
+            Console.WriteLine($"La Orden ID: {nuevaOrder.OrderID} con importe total $ {total} se ha creado correctamente.");
 
             Console.ReadLine();
-
-
-
-
-
         }
 
         private static void MenuRead()
