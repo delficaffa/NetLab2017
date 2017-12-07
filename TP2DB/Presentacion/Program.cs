@@ -1,6 +1,7 @@
 ﻿using System;
 using Servicios.DTO;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Presentacion
 {
@@ -8,12 +9,12 @@ namespace Presentacion
     {
         static void Main(string[] args)
         {
-           
+
             string opcion;
             do
             {
                 Console.WriteLine("\nIngrese la opcion deseada:");
-                Console.WriteLine("\t'C' - Create\n\t'R' - Read\n\t'U' - Update\n\t'D' - Delete\n\t'E' - Exit");
+                Console.WriteLine("\t'C' - Create\n\t'R' - Read\n\t'B' - Bests\n\t'U' - Update\n\t'D' - Delete\n\t'E' - Exit");
                 opcion = Console.ReadLine();
 
                 switch (opcion.ToLower())
@@ -28,6 +29,11 @@ namespace Presentacion
 
                     case "u":
                         MenuEdit();
+                        break;
+
+                    case "b":
+                        MenuBests();
+
                         break;
 
                     case "d":
@@ -47,8 +53,7 @@ namespace Presentacion
             Console.WriteLine("Ingrese el ID de la orden:");
             var id = int.Parse(Console.ReadLine());
             var ordenEditar = servicio.GetOrderID(id);
-
-
+            
             //PEDIDO DE DATOS
 
             do
@@ -65,12 +70,10 @@ namespace Presentacion
                     Console.WriteLine("No existe ese empleado intentelo nuevamente.");
             } while (ordenEditar.EmployeeID == 0);
 
-
-            ordenEditar.OrderDate = DateTime.Today;
+            
             Console.Write("Ingrese la fecha en el siguiente formato dd-mm-yyyy: ");
-
             DateTime date;
-            DateTime.TryParse(Console.ReadLine(), out date); //VALIDAR FORMATO DE LA FECHA!!!
+            DateTime.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
             ordenEditar.RequiredDate = date;
 
             Console.Write("Ingrese el nombre del envío: ");
@@ -90,13 +93,12 @@ namespace Presentacion
 
             Console.Write("Ingrese el pais de destino: ");
             ordenEditar.ShipCountry = Console.ReadLine();
-            
+
             servicio.Modificar(ordenEditar);
 
-            
+            Console.WriteLine("Orden modificada con exito!");
+
             Console.ReadLine();
-
-
         }
 
         private static void MenuDelete()
@@ -108,16 +110,12 @@ namespace Presentacion
             servicio.Eliminar(idOrder);
 
         }
-        
+
         private static void MenuCreate()
         {
             var servicio = new Servicios.Consultas();
             var nuevaOrder = new OrderDTO();
-
-            Console.WriteLine("DATOS DE PRUEBA:");//<----- BORRARRRRRRR
-            Console.WriteLine("ALFKI - Davolio - Nancy - chai - tofu"); //<----- BORRARRRRRRR
-
-
+            
             do
             {
                 Console.Write("Ingrese el ID del cliente: ");
@@ -133,7 +131,7 @@ namespace Presentacion
                 }
             } while (nuevaOrder.CustomerID == null);
 
-            
+
             do
             {
                 Console.Write("Ingrese el nombre del empleado: ");
@@ -145,16 +143,20 @@ namespace Presentacion
                 nuevaOrder.EmployeeID = servicio.BuscarEmployeeID(nombre, apellido);
 
                 if (nuevaOrder.EmployeeID == 0)
-                    Console.WriteLine("No existe ese empleado intentelo nuevamente."); 
+                    Console.WriteLine("Intentelo nuevamente.");
             } while (nuevaOrder.EmployeeID == 0);
-            
 
-            nuevaOrder.OrderDate = DateTime.Today;
-            Console.Write("Ingrese la fecha en el siguiente formato dd-mm-yyyy: ");
+            do
+            {
+                nuevaOrder.OrderDate = DateTime.Today;
+                Console.Write("Ingrese la fecha en el siguiente formato dd-mm-yyyy: ");
 
-            DateTime date;
-            DateTime.TryParse(Console.ReadLine(), out date); //VALIDAR FORMATO DE LA FECHA!!!
-            nuevaOrder.RequiredDate = date;
+                DateTime date;
+                DateTime.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+                nuevaOrder.RequiredDate = date;
+
+            } while (nuevaOrder.RequiredDate == null);
+         
 
             Console.Write("Ingrese el nombre del envío: ");
             nuevaOrder.ShipName = Console.ReadLine();
@@ -186,7 +188,7 @@ namespace Presentacion
                 if (opcion == "a")
                 {
                     var orderDetail = new OrderDetailDTO();
-                    
+
                     do
                     {
                         Console.Write("Ingrese el nombre del producto: ");
@@ -227,17 +229,12 @@ namespace Presentacion
             } while (opcion != "s");
 
             nuevaOrder.OrderID = servicio.Agregar(nuevaOrder);
-            
+
             var total = servicio.GetOrderTotal(nuevaOrder.OrderID);
 
-            Console.WriteLine($"La Orden ID: {nuevaOrder.OrderID} con importe total $ {total} se ha creado correctamente.");//<-----DEVUELVE CERO!
+            Console.WriteLine($"La Orden ID: {nuevaOrder.OrderID} con importe total $ {total} se ha creado correctamente.");
 
             Console.ReadLine();
-
-
-
-
-
         }
 
         private static void MenuRead()
@@ -248,8 +245,39 @@ namespace Presentacion
             var lista = servicio.Read();
             foreach (var item in lista)
             {
-                Console.WriteLine($"{item.OrderID}\t{item.CustomerName}\t${servicio.GetOrderTotal(item.OrderID)}");
+                Console.WriteLine($"{item.OrderID}\t{item.CustomerName}\t$ {item.Total}");
             }
+        }
+
+        private static void MenuBests()
+        {
+            var servicio = new Servicios.Consultas();
+           
+            string opcion;
+            do
+            {
+                Console.WriteLine("Ingrese\n\t'C' para listar los clientes con mayor compra por pais.\n\t" +
+                  "'P' para listar los productos mas vendidos por pais.\n\t'S' Para Salir");
+                opcion = Console.ReadLine();
+                switch (opcion.ToLower())
+                {
+                    case "c":
+                        var mejoresV = servicio.ListarMejoresPorPais();
+                        foreach (var item in mejoresV)
+                        {
+                            Console.WriteLine($"{item.Country}\t{item.Name}\t$ {item.Total}");
+                        }
+                        break;
+
+                    case "p":
+                        var mejoresP = servicio.ProductosXPais();
+                        foreach (var item in mejoresP)
+                        {
+                            Console.WriteLine($"{item.Country}\t{item.ProductName}");
+                        }
+                        break;
+                }
+            } while (opcion != "s");
         }
     }
 }

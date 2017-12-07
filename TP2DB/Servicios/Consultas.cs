@@ -10,12 +10,12 @@ namespace Servicios
     public class Consultas
     {
         private Repository<Orders> orderRepository;
-        
+
         public Consultas()
         {
             orderRepository = new Repository<Orders>();
         }
-        
+
         public int Agregar(OrderDTO orderDto)
         {
             var order = new Orders()
@@ -31,7 +31,7 @@ namespace Servicios
                 ShipCountry = orderDto.ShipCountry
             };
 
-           // var orderDetails = new List<Order_Details>();//
+            // var orderDetails = new List<Order_Details>();//
             var orderDetailsDTO = orderDto.OrderDetail;
             foreach (var detail in orderDetailsDTO)
             {
@@ -54,6 +54,7 @@ namespace Servicios
 
         public List<OrderGetDTO> Read()
         {
+
             var list = new List<OrderGetDTO>();
             var data = orderRepository.GetAll();
 
@@ -63,59 +64,63 @@ namespace Servicios
                 {
                     OrderID = order.OrderID,
                     CustomerName = order.Customers.ContactName,
-                    Freight = order.Freight
+                    Total = GetOrderTotal(order.OrderID)
                 });
             }
-
             return list;
+
         }
 
         public void Eliminar(int id)
         {
-           var repeat = true;
-            while(repeat)
+            try
             {
-                try
+                var deleteOrder = orderRepository.GetById(id);
+                if (deleteOrder == null)
                 {
-                    var deleteOrder = orderRepository.GetById(id);
-                    if (deleteOrder != null)
+                    throw new NullReferenceException();
+                }
+                else
+                {
+                    var pais = deleteOrder.Customers.Country;
+                    if (pais == "Mexico" || pais == "France")
                     {
-                        var pais = deleteOrder.Customers.Country;
-                        if (pais == "Mexico" || pais == "France")
-                        {
-                            Console.WriteLine("No se pueden eliminar ordenes de FRANCIA o MEXICO");
-                        }
-                        else
-                        {
-                            foreach (var detail in deleteOrder.Order_Details)           //EL FOREACH NO TIENE RECURSION. 
-                            {
-                                deleteOrder.Order_Details.Remove(detail);
-                            }
-                            orderRepository.Remove(deleteOrder);
-                            orderRepository.SaveChanges();
-                            Console.WriteLine("Orden eliminada Correctamente");
-                        }
+                        Console.WriteLine("No se pueden eliminar ordenes de FRANCIA o MEXICO");
+
                     }
                     else
                     {
-                        Console.WriteLine($"No existe una orden con el ID: {id}");
-                        break;
+                        var DetailsRepo = new Repository<Order_Details>();
+                        var orders = DetailsRepo.Set().Where(d => d.OrderID == deleteOrder.OrderID);
+
+                        foreach (var detail in orders)
+                        {
+                            DetailsRepo.Remove(detail);
+                        }
+                        DetailsRepo.SaveChanges();
+                        orderRepository.Remove(deleteOrder);
+                        orderRepository.SaveChanges();
+                        Console.WriteLine("Orden eliminada Correctamente");
+                        Console.WriteLine("Presione enter para continuar");
+
                     }
                 }
-                catch (InvalidOperationException)
-                {
-                    Console.WriteLine("No se pudo eliminar la orden..");
-                }
-            } 
-            Console.WriteLine("Desea volver a intentarlo? S/N");
-            string go = Console.ReadLine();
-            repeat = go.ToLower() == "s";
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine($"No existe una orden con el ID: {id}");
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("No se pudo eliminar la orden..");
+            }
+
         }
 
         public bool BuscarCustomerID(string id)
         {
             return orderRepository.GetById(id);
-                  
+
         }
 
         public int BuscarEmployeeID(string n, string a)
@@ -161,6 +166,7 @@ namespace Servicios
                 ShipCountry = order.ShipCountry
             };
         }
+
         public Orders FillDataInvert(OrderDTO order)
         {
             var neworder = orderRepository.GetById(order.OrderID);
@@ -187,7 +193,61 @@ namespace Servicios
 
         }
 
+        public List<MejorPorPaisDTO> ListarMejoresPorPais()
+        {
+            var mejoresXPais = new List<MejorPorPaisDTO>();
+            var data = orderRepository.GetAll();
 
+            foreach (var order in data)
+            {
+                mejoresXPais.Add(new MejorPorPaisDTO()
+                {
+                    Name = order.Customers.ContactName,
+                    Country = order.Customers.Country,
+                    Total = GetOrderTotal(order.OrderID)
+                });
+            }
+            return SeleccionMejores(mejoresXPais);
+        }
+
+        public List<MejorPorPaisDTO> SeleccionMejores(List<MejorPorPaisDTO> all)
+        {
+            var clientesXPais = all
+                .GroupBy(x => x.Country)
+                .Select(x => new MejorPorPaisDTO
+                {
+                    Country = x.Key,
+                    Name = x.OrderByDescending(e => e.Total).FirstOrDefault().Name,
+                    Total = x.OrderByDescending(e => e.Total).FirstOrDefault().Total
+                })
+                .ToList();
+            return clientesXPais;
+        }
+
+        public List<ProductoMasVendidoDTO> ProductosXPais()
+        {
+            var mejoresXPais = new List<ProductoMasVendidoDTO>();
+            var data = orderRepository.GetAll();
+
+            foreach (var order in data)
+            {
+                mejoresXPais.Add(new ProductoMasVendidoDTO()
+                {
+                    ProductName = order.Order_Details
+                    .GroupBy(b => b.ProductID)
+                    .OrderByDescending(t => t.Count())
+                    .FirstOrDefault()
+                    .Select(b => b.Products.ProductName)
+                    .FirstOrDefault(),
+
+                    Country = order.Customers.Country
+                });
+            }
+            return mejoresXPais.GroupBy(g => g.Country, StringComparer.OrdinalIgnoreCase)
+                      .Select(g => g.First())
+                      .ToList();
+
+        }
 
     }
 }
