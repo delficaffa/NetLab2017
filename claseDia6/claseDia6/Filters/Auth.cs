@@ -18,7 +18,7 @@ namespace claseDia6.Filters
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
             filterContext.Result = new RedirectToRouteResult(
-                new RouteValueDictionary(new { controller = "Home", action = "Saludo2" })
+                new RouteValueDictionary(new { controller = "Home", action = "Saludo" })
                 );
         }
 

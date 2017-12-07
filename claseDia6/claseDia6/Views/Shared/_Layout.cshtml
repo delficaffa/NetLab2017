@@ -24,7 +24,10 @@
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                    <li>@Html.ActionLink("Visitas", "Visitas", "Home")</li>
                 </ul>
+                <h5 style="color:white;text-align:right">@HttpContext.Current.Session["user"]</h5>
             </div>
         </div>
     </div>
@@ -33,6 +36,7 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>Cantidad de visitas: @HttpContext.Current.Application["count"]</p>
         </footer>
     </div>
 

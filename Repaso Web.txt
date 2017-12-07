@@ -1,0 +1,136 @@
+HTTP --> protocolo
+diferentes verbos en un request
+(cuando viaja del cliente al servidor)
+http 	- GET
+	-POST
+	-PUT
+	-DELETE
+MVC
+Model-View-Controller
+la vista solo toma y muestra informacion
+el controlador a travez del modelo que es un objeto/clase 
+se lo pasa a una vista. el controlador redirige.
+SOC=por lo que cada componente va a tener su propia responsabilidad
+
+Host/____/____/____
+
+nombre del controlador -> por parametro Home
+nombre de la accion -> por parametro Index
+parametros -> por parametro ID
+los parametros son por convencion 
+
+SIEMPRE cuando se crea un controlador se termina el nombre en Controller
+
+Las vistas se buscan en la carpeta del controlador si no esta en la carpeta del 
+controlador la va  a buscar en la carpeta Shared, donde estan todas las vistas
+compartidas
+return View("About");
+una vista puede retornar a otra accion
+return RedirectToAction("Index","Region");
+
+el controlador va a manejar por Request el verbo y los atributos que va a recibir
+[HttpGet][HttpPost]
+
+las vistas estan en razor = es una mezcla de html y c@
+
+HtmlHelpers
+componentes de razon para ayudarnos a escribir html por nosotros
+como escribir formularios, combos, listas.
+
+que toman la informacion a travez de un post
+
+a travez de models le pasamos objetos  a la vista
+@model nombreDelObjeto
+tambien se puede pasar una lista de objetos
+@model IEnumerable<nombreDelObejto>
+
+para crear un HtmlHelper se crea un clase statica HtmlHelperExtends
+
+Las vistas parciales es como embeber un pedazo de una vista en otras
+nos ayudan renderizando una parte que se repite en varias listas
+
+las vistas que no son de accion tienen un _ como _Layout
+
+[HttpPost]
+public IActionResult(Persona persona)
+{
+if(modelState.IsValue)
+{
+   var = 1;
+}
+return view(persona);<----va a mostrar la persona actualizada
+}
+
+<form method="post" action="aDondeQuieroQueVayaLaInfo"></form>
+
+<input name="Nombre" type="text"></input>
+
+DECORAR UNA PROPIEDAD
+
+[Display (Name = "Name")]
+[MaxLength(30,ErrorMessage ="")]
+[Required]
+public string Nombre{get; set;}
+
+
+PIPELINE
+entra un REQUEST
+busca controlador
+crea los objes
+autenticacion
+Acciones de resultado
+sale un RESPONSE
+
+el filto es una difurcacion, validacion
+para no preguntar en cada controlador si esta logeado por ejemplo,
+se crea un filtro que se llama desde el controlador
+
+la diferencia entre cada tipo de filto es el punto en donde corta
+los de autorizacion van a estar al principio de todo
+los de accion van a estar antes y despues de realizar la accion
+y los de resultado al final
+
+un filtro es una clase que hereda de ActionFilterAttribute
+
+IMPLEMENTAR UN FILTRO
+-por controlador, decorando el controlador y se va a aplicar a todos los 
+metodos del controlador.
+- por metodo, decorando el metodo y se va a aplicar solamente en esa 
+accion
+- global -> en app.global en donde se va a aplicar para caada request que ingrese
+en el pipeline
+
+DONDE GUARDAMOS INFORMACION
+
+no se pueden guardar cosas que trasciendan a los request porque 
+cada vez que se llama a un controlador 
+se vuelve a inicializar.
+
+por eso para guardar informacion tenemos
+
+-Aplication -> se guardan a nivel  de aplicacion.
+Es un diccionario estatico de clave valor
+comun a todas las sesiones de la aplicacion
+HttpContext.Aplication["name"]=1;
+var b = int.parse(HttpContext.Aplication["name"].ToString());
+
+-Sessionss
+Maneras de guardar sessionss
+-SQL (Base de datos)
+-InPro (Memoria)<- por defecto
+-NetWork ()
+-Custom(como yo quiera)
+
+-Cookies
+Archivos de texte que tienen valor, ID y fecha de expiracion
+que se alojan en la memoria del cliente para guardar informacion del usuario
+detalles como el color que tenga definido el cliente.
+viajan con cada request
+
+-QueryString
+Informacion a traves de la URL 
+?nombre=delfina&apellido=caffa
+
+-HttpContext 
+Es como aplicacion y sesion solo que por request
+sirve para leer info que queremos usar solo una vez
