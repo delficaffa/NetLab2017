@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<br />
+<br />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3">
+
+        <div class="form-group">
+            <label>Primer numero</label>
+            <input id="N1" class="form-group" type="number" num1="num1" />
+        </div>
+
+        <div class="form-group">
+            <label>Segundo numero</label>
+            <input id="N2" class="form-group" type="number" num2="num2" />
+        </div>
+
+        <div class="form-group">
+            <label>Result</label>
+            <input id="N3" class="form-group" type="number" result="num3" readonly/>
+        </div>
+        <button class="btn btn-primary" onclick="return Operaciones()" type="submit">Calculate</button>
+    </div>
+
+    <div class="col-sm-3">
+        <select id="select" class="form-control">
+            <option value="Sumar">Sumar</option>
+            <option value="Restar">Restar</option>
+            <option value="Multiplicar">Multiplicar</option>
+            <option value="Dividir">Dividir</option>
+        </select>
+    </div>
+</div>
+<div class="col-sm-3">  
+</div>
+
+<script>
+
+    var n1 = document.getElementById("N1");
+    var n2 = document.getElementById("N2");
+    var n3 = document.getElementById("N3");
+
+    function Operaciones() {
+        var op = document.getElementById("select")
+        switch (op.value) {
+            //ARREGLAR QUE ME TOMA LOS NUMEROS COMO STRINGS Y POR ESO ME LOS CONCATENA EN VES DE HACER LAS OPERACIONES
+            case "Sumar":
+                n3.value = n1.value + n2.value;
+                break;
+            case "Restar":
+                n3.value = n1.value - n2.value;
+                break;
+            case "Multiplicar":
+                n3.value = n1.value * n2.value;
+                break;
+            case "Dividir":
+                n3.value = n1.value / n2.value;
+                break;
+        }
+
+    }
+
+</script>

@@ -1,0 +1,62 @@
+﻿@model EjercicioDeivit.Persona
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h1>CREAR</h1>
+
+<br />
+<br />
+
+<form method="post" action="CrearPersona/Create">
+    <div class="form-group">
+        <label>Nombre</label>
+        <input id="txtName" type="text"  name="Nombre" />
+        <span id="NameError" style="color:red">  </span>
+    </div>
+
+    <div class="form-group">
+        <label>Apellido</label>
+        <input id="txtSurname" type="text"  name="Apellido" />
+        <span id="SurnameError" style="color:red">  </span>
+    </div>
+
+    <div class="form-group">
+        <label>Edad</label>
+        <input id="txtAge" type="number" name="Edad" />
+        <span id="AgeError" style="color:red">  </span>
+    </div>
+
+    <button class="btn btn-success" onclick="return ValidateForm()" type="submit">Crear</button>
+
+</form>
+
+<script>
+
+    var nombre = document.getElementById("txtName");
+    var apellido = document.getElementById("txtSurname");
+    var edad = document.getElementById("txtAge");
+
+  
+    function ValidateForm() {
+        var error = true;
+        if (nombre.value.length >= 50 || nombre.value == "") {
+            document.getElementById("NameError").innerHTML = "Nombre requerido!";
+            error = false;
+        }
+
+        if (apellido.value.length >= 50 || apellido.value == "") {
+            document.getElementById("SurnameError").innerHTML = "Apellido requerido!";
+            error =  false;
+        }
+
+        if (edad.value < 13 || edad.value == null) {
+            document.getElementById("AgeError").innerHTML = "Edad requerido!";
+            error =  false;
+        }
+
+        if (nombre.value == apellido.value) {
+            error =  false;
+        }
+        return error;
+       
+
+    }
+</script>
