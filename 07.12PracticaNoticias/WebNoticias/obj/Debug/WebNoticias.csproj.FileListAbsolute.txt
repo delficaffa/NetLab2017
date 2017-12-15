@@ -1,0 +1,106 @@
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\ApplicationInsights.config
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\WebNoticias.dll.config
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\WebNoticias.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\WebNoticias.pdb
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Antlr3.Runtime.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.SqlServer.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.Web.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Newtonsoft.Json.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Helpers.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Mvc.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Optimization.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Razor.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Razor.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\WebGrease.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.SqlServer.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Helpers.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Mvc.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Optimization.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.Razor.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Razor.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Antlr3.Runtime.pdb
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Newtonsoft.Json.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.Web.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Razor.resources.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.pdb
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\ApplicationInsights.config
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\WebNoticias.dll.config
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\WebNoticias.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\WebNoticias.pdb
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Antlr3.Runtime.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.SqlServer.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.Agent.Intercept.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.DependencyCollector.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.PerfCounterCollector.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.ServerTelemetryChannel.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.Web.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.WindowsServer.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.ApplicationInsights.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.Web.Infrastructure.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Newtonsoft.Json.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Helpers.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Mvc.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Optimization.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Razor.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Deployment.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Razor.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\WebGrease.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\EntityFramework.SqlServer.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Helpers.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Mvc.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Optimization.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.Razor.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Deployment.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\System.Web.WebPages.Razor.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Antlr3.Runtime.pdb
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Newtonsoft.Json.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.ApplicationInsights.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.DependencyCollector.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.ServerTelemetryChannel.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.WindowsServer.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\Microsoft.AI.Web.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Helpers.resources.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Mvc.resources.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Optimization.resources.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.Razor.resources.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.WebPages.resources.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.WebPages.Deployment.resources.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\bin\es\System.Web.WebPages.Razor.resources.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.csprojResolveAssemblyReference.cache
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.csproj.CoreCompileInputs.cache
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\WebNoticias\obj\Debug\WebNoticias.pdb

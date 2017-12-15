@@ -1,0 +1,52 @@
+﻿<script src="~/Scripts/jquery-3.js"></script>
+
+@{
+    ViewBag.Title = "JQuery";
+}
+
+<script>
+    function Eliminar(btnX) {
+        var liElement = $(btnX).parent();
+        liElement.remove();
+    }
+    function Editar(btnE) {
+        var liElement = $(btnE).parent();
+
+        var span = liElement.find("span");
+
+        var val2 = $("#valor").val(span.text());
+        $("btn").text("Confirmar"); //NUNCA TERMINO EDITANDO snif snif
+
+    }
+    function Confirmar() {
+        $("#lista").append(elemento);
+    }
+
+    $(document).ready(function () {
+        $("#btn").click(function () {
+
+            var val = $("#valor").val();
+
+            var elemento = `<li class="list-group-item">
+                            <span>${val}</span>
+                            <button id="btnE" onclick="Editar(this)" >Editar</button>
+                            <button id="btnX" onclick="Eliminar(this)" >Eliminar</button>
+                            </li>`;
+
+            $("#lista").append(elemento);
+
+            $("#valor").val('');
+        });
+
+    });
+
+
+</script>
+
+
+<h2>Lista</h2>
+<input class="form-control" type="text" id="valor" />
+<button id="btn">Guardar</button>
+<hr />
+<ul id="lista" class="list-group"></ul>
+

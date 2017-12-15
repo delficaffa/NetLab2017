@@ -1,0 +1,13 @@
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\Servicios.dll
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\Servicios.pdb
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\Data.dll
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\EntityFramework.dll
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\Data.pdb
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\Data.dll.config
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\EntityFramework.xml
+c:\users\usuario\source\repos\PracticaEntity\Servicios\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\usuario\source\repos\PracticaEntity\Servicios\obj\Debug\Servicios.csprojResolveAssemblyReference.cache
+c:\users\usuario\source\repos\PracticaEntity\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+c:\users\usuario\source\repos\PracticaEntity\Servicios\obj\Debug\Servicios.dll
+c:\users\usuario\source\repos\PracticaEntity\Servicios\obj\Debug\Servicios.pdb

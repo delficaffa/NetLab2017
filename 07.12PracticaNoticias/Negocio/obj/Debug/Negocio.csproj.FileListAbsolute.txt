@@ -1,0 +1,22 @@
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\bin\Debug\Negocio.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\bin\Debug\DataAccess.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\bin\Debug\DataAccess.pdb
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\bin\Debug\DataAccess.dll.config
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\bin\Debug\Negocio.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\bin\Debug\Negocio.pdb
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\bin\Debug\DataAccess.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\bin\Debug\EntityFramework.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\bin\Debug\DataAccess.pdb
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\bin\Debug\DataAccess.dll.config
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\bin\Debug\EntityFramework.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\Negocio\obj\Debug\Negocio.pdb

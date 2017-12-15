@@ -1,0 +1,22 @@
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Usuario\source\repos\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.pdb
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\bin\Debug\DataAccess.dll.config
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\bin\Debug\DataAccess.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\bin\Debug\DataAccess.pdb
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.dll
+\\fsitsv17\MOS-alumnos\alumno\Delfina Caffa\NetLab\07.12PracticaNoticias\DataAccess\obj\Debug\DataAccess.pdb

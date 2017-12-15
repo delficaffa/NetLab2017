@@ -1,0 +1,7 @@
+c:\users\usuario\source\repos\Practica13-12\Consola\bin\Debug\Consola.exe.config
+c:\users\usuario\source\repos\Practica13-12\Consola\bin\Debug\Consola.exe
+c:\users\usuario\source\repos\Practica13-12\Consola\bin\Debug\Consola.pdb
+c:\users\usuario\source\repos\Practica13-12\Consola\obj\Debug\Consola.csprojResolveAssemblyReference.cache
+c:\users\usuario\source\repos\Practica13-12\Consola\obj\Debug\Consola.csproj.CoreCompileInputs.cache
+c:\users\usuario\source\repos\Practica13-12\Consola\obj\Debug\Consola.exe
+c:\users\usuario\source\repos\Practica13-12\Consola\obj\Debug\Consola.pdb
